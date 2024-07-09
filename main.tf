@@ -1,6 +1,6 @@
 module "sqs_queue_dlq" {
   source                            = "terraform-aws-modules/sqs/aws"
-  version                           = "~> 3.2.0"
+  version                           = "~> 3.5.0"
   create                            = length(var.dlq_options) > 0 ? true : false
   name                              = lookup(var.dlq_options, "name", "${var.name}_dlq")
   fifo_queue                        = var.fifo_queue
@@ -25,7 +25,7 @@ locals {
 
 module "sqs_queue" {
   source                            = "terraform-aws-modules/sqs/aws"
-  version                           = "~> 3.2.0"
+  version                           = "~> 3.5.0"
   create                            = true
   name                              = var.name
   fifo_queue                        = var.fifo_queue
